@@ -146,13 +146,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // TODO (16): Create New AuthStateListener;
+        // TODO (16): Create New AuthStateListener
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 // TODO (17): Get user state
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
+                // TODO (19): onSignedInInitialize and onSignedOutCleanup
                 if(user != null){
                     //user us signed in
                     onSignedInInitialize(user.getDisplayName());
@@ -183,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // TODO (23): Implement Sign out on MenuItem
         switch (item.getItemId()){
             case R.id.sign_out_menu:
                 //sign out
@@ -193,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // TODO (17): Override OnPause and OnResume;
+    // TODO (17): Override OnPause and OnResume
     @Override
     protected void onPause() {
         super.onPause();
@@ -210,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
         mFirebaseAuth.addAuthStateListener(mAuthStateListener);
     }
 
+    // TODO (22): Override onActivityResult to leave the loop of FirebaseUI and MainActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -223,11 +226,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // TODO (20): Assign user to mUsername and read the message after user is sign in
     private void onSignedInInitialize(String username) {
         mUsername = username;
         attachDatabaseReadListener();
     }
 
+    // TODO (21): Sign out
     private void onSignedOutCleanup() {
         mUsername = ANONYMOUS;
         mMessageAdapter.clear();
