@@ -48,6 +48,15 @@ dependencies {
     // TODO (12):FirebaseUI
     compile 'com.firebaseui:firebase-ui-auth:0.6.0'
 
+    // TODO (24):FirebaseStorage
+    compile 'com.google.firebase:firebase-storage:9.6.0'
+
+    // TODO (29):FirebaseNotification
+    compile 'com.google.firebase:firebase-messaging:9.6.0'
+
+    // TODO (30):Firebase RemoteConfig
+    compile 'com.google.firebase:firebase-config:9.6.0'
+
 }
 // TODO (2):Add to the bottom of the file
 apply plugin: 'com.google.gms.google-services'
