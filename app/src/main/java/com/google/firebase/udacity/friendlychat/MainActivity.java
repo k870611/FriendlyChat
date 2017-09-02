@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO (35): Fetch the config to determine the allowed length of messages.
     private void fetchConfig() {
-        long cacheExpiration = 3600; // 1 hour in seconds
+        long cacheExpiration = 0; // 1 hour in seconds
         // If developer mode is enabled reduce cacheExpiration to 0 so that each fetch goes to the
         // server. This should not be used in release builds.
         if(mFirebaseRemoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled()){
@@ -267,7 +267,8 @@ public class MainActivity extends AppCompatActivity {
     private void applyRetrievedLengthLimit() {
         Long friendly_msg_length = mFirebaseRemoteConfig.getLong(FRIENDLY_MSG_LENGTH_KEY);
         mMessageEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(friendly_msg_length.intValue())});
-        Log.d(TAG, FRIENDLY_MSG_LENGTH_KEY + " = " + friendly_msg_length);    }
+        Log.d(TAG, FRIENDLY_MSG_LENGTH_KEY + " = " + friendly_msg_length);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
