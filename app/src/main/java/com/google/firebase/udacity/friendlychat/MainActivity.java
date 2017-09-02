@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
 
     // TODO (35): Fetch the config to determine the allowed length of messages.
     private void fetchConfig() {
-        long cacheExpiration = 0; // 1 hour in seconds
+        long cacheExpiration = 10; // 1 hour in seconds
         // If developer mode is enabled reduce cacheExpiration to 0 so that each fetch goes to the
         // server. This should not be used in release builds.
         if(mFirebaseRemoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled()){
